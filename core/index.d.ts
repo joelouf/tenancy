@@ -2,7 +2,7 @@
  * The core barrel: TypeScript Declarations.
  *
  * @module core
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 // Context and the fail-closed gate.

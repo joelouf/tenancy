@@ -2,7 +2,7 @@
  * The scope-filter algebra: TypeScript Declarations.
  *
  * @module core/scope
- * @version 1.0.0
+ * @version 1.0.1
  */
 import type { WorkspaceContext } from './context.js';
 

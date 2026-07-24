@@ -2,7 +2,7 @@
  * The scope-selection grammar: TypeScript Declarations.
  *
  * @module grammar
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 export type ScopeSelectionKind = 'group' | 'property' | 'entity';

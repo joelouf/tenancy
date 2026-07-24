@@ -2,7 +2,7 @@
  * Request-scoped tenant context: TypeScript Declarations.
  *
  * @module core/context
- * @version 1.0.0
+ * @version 1.0.1
  */
 import type { ObjectIdLike } from './types.js';
 

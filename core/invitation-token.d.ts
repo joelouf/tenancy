@@ -2,7 +2,7 @@
  * Invitation token custody: TypeScript Declarations.
  *
  * @module core/invitation-token
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 export declare function generateInvitationToken(): string;

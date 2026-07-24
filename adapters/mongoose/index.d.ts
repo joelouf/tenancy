@@ -2,7 +2,7 @@
  * The Mongoose enforcement adapter: TypeScript Declarations.
  *
  * @module adapters/mongoose
- * @version 1.0.0
+ * @version 1.0.1
  */
 import type { PipelineStage, Schema } from 'mongoose';
 

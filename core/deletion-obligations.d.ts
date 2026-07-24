@@ -2,7 +2,7 @@
  * The workspace-deletion obligations registry: TypeScript Declarations.
  *
  * @module core/deletion-obligations
- * @version 1.0.0
+ * @version 1.0.1
  */
 import type { ObjectIdLike } from './types.js';
 

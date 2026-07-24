@@ -35,6 +35,6 @@ jobs:
         env:
           TENANCY_TEST_DB_URI: mongodb://127.0.0.1:27017/tenancy-release?directConnection=true
       - run: pnpm run typecheck
-      - run: pnpm publish --provenance --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Upgrade npm for trusted publishing (requires 11.5.1+)
+        run: npm install -g npm@latest
+      - run: npm publish

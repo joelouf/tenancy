@@ -2,7 +2,7 @@
  * The one-time tenancy configuration: TypeScript Declarations.
  *
  * @module core/config
- * @version 1.0.0
+ * @version 1.0.1
  */
 import type { LoggerPort, TenancyConfiguration } from './types.js';
 

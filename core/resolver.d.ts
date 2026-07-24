@@ -2,7 +2,7 @@
  * The workspace resolver: TypeScript Declarations.
  *
  * @module core/resolver
- * @version 1.0.0
+ * @version 1.0.1
  */
 import type { LoggerPort, ObjectIdLike } from './types.js';
 import type { WorkspaceContext } from './context.js';

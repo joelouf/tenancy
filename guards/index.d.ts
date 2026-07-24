@@ -6,7 +6,7 @@
  * script that wires this check supplies its own compiler module.
  *
  * @module guards
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 export declare const SUPPRESSION_MARKER: '// scope-guard-allow:';

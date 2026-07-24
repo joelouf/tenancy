@@ -1,6 +1,6 @@
 {
     "name": "@joelouf/tenancy",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A zero-runtime-dependency, fail-closed workspace-tenancy enforcement engine: AsyncLocalStorage tenant context, entity-narrowed Mongoose scope plugins, an enumeration-resistant membership resolver, and lint-guard cores, all behind ports.",
     "type": "module",
     "main": "index.js",
