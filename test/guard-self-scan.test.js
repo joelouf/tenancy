@@ -1,5 +1,5 @@
 // The package eats its own guard: the workspace-scope check runs over the shipped source (core,
-// grammar, adapters, guards, the root barrel — .js and .d.ts alike) and must report zero
+// grammar, adapters, guards, the root barrel, .js and .d.ts alike) and must report zero
 // unsuppressed findings. The engine's own sanctioned sites (the scopedLookup definition, the
 // runAsSystem definition, the error-message mention) carry the same inline markers any consumer
 // site would.

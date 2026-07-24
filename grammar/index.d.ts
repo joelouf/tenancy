@@ -1,5 +1,5 @@
 /**
- * The scope-selection grammar — TypeScript Declarations.
+ * The scope-selection grammar: TypeScript Declarations.
  *
  * @module grammar
  * @version 1.0.0

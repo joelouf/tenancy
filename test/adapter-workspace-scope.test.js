@@ -1,4 +1,4 @@
-// The adapter wall suite — the machinery-generic port of the consumer's workspace-scope pins,
+// The adapter wall suite: the machinery-generic port of the consumer's workspace-scope pins,
 // on probe schemas. The no-DB half always runs (the fail-closed wiring needs no connection);
 // the DB-backed half runs against a LOCAL mongod only: unset TENANCY_TEST_DB_URI skips it
 // cleanly, a non-local value makes the harness throw (fail closed).

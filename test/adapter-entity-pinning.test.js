@@ -1,4 +1,4 @@
-// The entity-pinning isolation suite — the machinery-generic half of the consumer's
+// The entity-pinning isolation suite: the machinery-generic half of the consumer's
 // entity-pinning pins, re-hosted onto probe schemas with the narrowed context produced by the
 // PACKAGE resolver over a stubbed directory (so entityIds resolution is pinned to the resolver,
 // not to any host model). DB-backed; skips cleanly without TENANCY_TEST_DB_URI, refuses a
@@ -110,7 +110,7 @@ test('the resolver materializes the narrowed entityIds from grant rows, not by h
 if (!DB_URI) {
     test('entity pinning isolation over a live mongod', { skip: DB_SKIP_REASON }, () => {});
 } else {
-    describe('entity pinning isolation — workspace with entities A/B, member narrowed to A (local test DB)', () => {
+    describe('entity pinning isolation: workspace with entities A/B, member narrowed to A (local test DB)', () => {
         const Owned = ownedProbeModel('PinProbeOwned', OWNED_COLLECTION);
         const FilesLike = ownedProbeModel('PinProbeFiles', FILES_COLLECTION, {
             workspaceLevelNulls: true

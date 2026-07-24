@@ -1,5 +1,5 @@
 /**
- * Shared structural types — TypeScript Declarations.
+ * Shared structural types: TypeScript Declarations.
  *
  * @module core/types
  * @version 1.0.0
@@ -7,7 +7,7 @@
 
 /**
  * The structural id shape the engine works with. Any object exposing the ObjectId surface
- * satisfies it — a Mongoose/BSON ObjectId does, and so does a hand-rolled stub in tests. The core
+ * satisfies it: a Mongoose/BSON ObjectId does, and so does a hand-rolled stub in tests. The core
  * never calls `instanceof` on ids and never constructs one; comparisons happen through
  * `String(...)` so hex-equal ids from different libraries agree.
  */

@@ -1,5 +1,5 @@
 /**
- * The Mongoose enforcement adapter — the wall itself.
+ * The Mongoose enforcement adapter: the wall itself.
  *
  * Two schema plugins and the sanctioned join builder. `tenantFieldsPlugin` declares the tenancy
  * paths (workspaceId always; a nullable entityId when the model is entity-owned);
@@ -7,7 +7,7 @@
  * stamp, and insertMany. `scopedLookup` is the ONLY sanctioned way to join collections in an
  * aggregation.
  *
- * mongoose is an OPTIONAL peer dependency imported only in this subpath — importing the package
+ * mongoose is an OPTIONAL peer dependency imported only in this subpath; importing the package
  * root or core never loads it. The adapter never opens a connection; connection management is
  * entirely the consumer's.
  *
@@ -32,7 +32,7 @@
  * Ownership metadata is attached to the schema object itself under
  * `Symbol.for('@joelouf/tenancy/ownership')` rather than kept in a module-level registry: the
  * schema instance is one shared object, so even if the two plugins resolve from different copies
- * of this module, the writer and the reader agree — the split-registry fail-open (entity
+ * of this module, the writer and the reader agree; the split-registry fail-open (entity
  * narrowing silently evaporating) dies by construction.
  *
  * @module adapters/mongoose
@@ -73,7 +73,7 @@ function ownershipOf(schema) {
 
 /**
  * Declare the tenancy paths on a schema. `workspaceRef` (and `entityRef`, when entity-owned)
- * name the host's model registrations — the package bakes in no model names.
+ * name the host's model registrations; the package bakes in no model names.
  *
  * NOTE on indexes: the `schema.index()` calls here do not self-provision under `autoIndex:
  * false`; index materialization is the host's deployment concern.
@@ -219,7 +219,7 @@ function assertUpdateStaysInScope(ctx, update) {
 /**
  * The entity write rules for a NARROWED context on an entity-owned schema: a non-null entityId
  * must sit inside the membership's set, and null (a workspace-level document) is writable only
- * where null is a real state (workspaceLevelNulls) — otherwise a narrowed member could widen an
+ * where null is a real state (workspaceLevelNulls); otherwise a narrowed member could widen an
  * entity document to workspace-level visibility.
  *
  * @param {import('../../core/context.js').WorkspaceContext} ctx
@@ -244,7 +244,7 @@ function assertEntityValueAllowed(ctx, ownership, value) {
 }
 
 /**
- * The entity update guards for a NARROWED context — the update-operator mirror of
+ * The entity update guards for a NARROWED context: the update-operator mirror of
  * `assertEntityValueAllowed`.
  *
  * @param {import('../../core/context.js').WorkspaceContext} ctx
@@ -316,7 +316,7 @@ const QUERY_HOOKS = [
  *
  * Under a workspace context every query is pinned to the context's workspace; a narrowed
  * context additionally pins entity-owned reads to its grant set (plus null, the workspace-level
- * state) and refuses writes outside it. Under a system context the plugin injects nothing — the
+ * state) and refuses writes outside it. Under a system context the plugin injects nothing: the
  * audited bypass. With no context at all, every hook throws (fail closed).
  *
  * @param {import('mongoose').Schema} schema
@@ -455,8 +455,8 @@ export function workspaceScopePlugin(schema) {
  *
  * Reads the ambient workspace context, so it must be called inside runWithWorkspace(). Consults
  * the configured entity-owned collection list and THROWS when configuration has not happened:
- * an unknown list would silently skip the entity pin on a narrowed context — cross-entity
- * widening — so the refusal is fail-closed, never fail-open.
+ * an unknown list would silently skip the entity pin on a narrowed context (cross-entity
+ * widening), so the refusal is fail-closed, never fail-open.
  *
  * @param {import('./index.js').ScopedLookupOptions} options
  * @returns {import('./index.js').ScopedLookupStage}

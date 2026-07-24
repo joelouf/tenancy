@@ -1,5 +1,5 @@
 /**
- * The core barrel — the substrate-independent enforcement spine.
+ * The core barrel: the substrate-independent enforcement spine.
  *
  * @module core
  */

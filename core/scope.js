@@ -1,9 +1,9 @@
 /**
- * The scope-filter algebra — pure builders for the workspace filter and pipeline fragments the
+ * The scope-filter algebra: pure builders for the workspace filter and pipeline fragments the
  * enforcement adapter and the host's repository layer apply.
  *
  * Everything here is pure (no ambient reads, no I/O), so the isolation guarantees can be asserted
- * without a database — which is exactly where they are asserted.
+ * without a database, which is exactly where they are asserted.
  *
  * @module core/scope
  */
@@ -44,7 +44,7 @@ export function scopeMatchStage(filter) {
 }
 
 /**
- * True when an existing leading `$match` already enforces the *exact* scope we would inject — the
+ * True when an existing leading `$match` already enforces the *exact* scope we would inject: the
  * same workspace. A leading `$match` pinning a *different* workspace does not count: we must not
  * trust it (that would let a mis-built pipeline widen scope), so our own guard goes in front of
  * it.
@@ -59,7 +59,7 @@ function matchCoversScope(match, filter) {
 
 /**
  * Prepend the workspace scope `$match` to a pipeline in place. Idempotent only when the identical
- * guard already leads — a different or weaker leading `$match` is never trusted; our guard goes
+ * guard already leads: a different or weaker leading `$match` is never trusted; our guard goes
  * in front so the effective scope can only narrow, never widen. A narrowed context passes
  * `alwaysPrepend`: an existing leading `$match` can cover the workspace without covering the
  * entity pin, and prepending twice only narrows.

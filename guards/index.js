@@ -1,18 +1,18 @@
 /**
- * The guard cores — the two static checkers that keep a consumer honest, dependency-injected so
+ * The guard cores: the two static checkers that keep a consumer honest, dependency-injected so
  * the package stays free of file-system and compiler dependencies.
  *
  * 1. The workspace-scope check flags the two highest-signal cross-workspace leak risks in a
  *    source tree: raw `$lookup` / `$graphLookup` / `$unionWith` stage keys (a `$lookup`
  *    sub-pipeline does NOT inherit the parent `$match`, so an unscoped join leaks across
- *    workspaces — joins must go through the sanctioned builder), and every ambient-bypass call
+ *    workspaces; joins must go through the sanctioned builder), and every ambient-bypass call
  *    site. Sanctioned sites carry an inline suppression marker on the finding's own line or the
  *    line directly above; there is no whole-file allow-list, so allow-listing one sanctioned
  *    line never blinds the guard to a new violation elsewhere in that file.
  *
  * 2. The tenant-models check AST-verifies (via an injected TypeScript compiler API) that every
- *    model file applies BOTH plugins by import-source-resolved binding — a same-named local
- *    function does not count — and that entity ownership is declared consistently in both
+ *    model file applies BOTH plugins by import-source-resolved binding (a same-named local
+ *    function does not count) and that entity ownership is declared consistently in both
  *    directions, including drift between the entity-owned model map and the configured
  *    collection list.
  *
@@ -58,7 +58,7 @@ function hasMarker(lines, lineNo, kind) {
 }
 
 /**
- * A finding on `line` (1-indexed) is suppressed by a marker on its own line or the line above —
+ * A finding on `line` (1-indexed) is suppressed by a marker on its own line or the line above,
  * but only when that marker names the same `kind`, so a bypass marker can never silence an
  * adjacent `$lookup` (and a doc comment merely mentioning the marker string suppresses nothing).
  *
@@ -107,7 +107,7 @@ export function scanLines(file, lines) {
 
 /**
  * Build the workspace-scope check over injected file I/O. The returned function performs the
- * scan and reports; it never prints and never exits — advisory-vs-strict presentation is the
+ * scan and reports; it never prints and never exits. Advisory-vs-strict presentation is the
  * config script's concern.
  *
  * @param {import('./index.js').WorkspaceScopeCheckOptions} options
@@ -152,8 +152,8 @@ export function modelNameFromPath(file) {
 
 /**
  * Drift between the entity-owned model map (model name -> collection name) and the configured
- * entity-owned collection list. Entity ownership is declared in both places deliberately —
- * per-model flags for the plugins, one flat list for the join builder — and this check catches
+ * entity-owned collection list. Entity ownership is declared in both places deliberately
+ * (per-model flags for the plugins, one flat list for the join builder), and this check catches
  * the two lists disagreeing in either direction.
  *
  * @param {Readonly<Record<string, string>>} entityOwned
@@ -167,7 +167,7 @@ export function entityOwnedListDriftProblems(entityOwned, entityOwnedCollections
     for (const [modelName, collection] of Object.entries(entityOwned)) {
         if (!collection) {
             problems.push(
-                `model "${modelName}" is in the entityOwned map but has no collection mapping — ` +
+                `model "${modelName}" is in the entityOwned map but has no collection mapping; ` +
                     'add one so the configured collection list can be checked against it'
             );
             continue;
@@ -176,7 +176,7 @@ export function entityOwnedListDriftProblems(entityOwned, entityOwnedCollections
         if (!entityOwnedCollections.includes(collection)) {
             problems.push(
                 `model "${modelName}" (collection "${collection}") is entity-owned but the collection is ` +
-                    'missing from entityOwnedCollections — joins against it would skip the entity pin; add it there'
+                    'missing from entityOwnedCollections: joins against it would skip the entity pin; add it there'
             );
         }
     }
@@ -184,7 +184,7 @@ export function entityOwnedListDriftProblems(entityOwned, entityOwnedCollections
         if (!declaredCollections.has(collection)) {
             problems.push(
                 `collection "${collection}" is listed in entityOwnedCollections but no entity-owned model ` +
-                    'declares it — remove it there or add the model to the entityOwned map'
+                    'declares it; remove it there or add the model to the entityOwned map'
             );
         }
     }
@@ -356,7 +356,7 @@ export function createTenantModelsCheck(options) {
             }
             if (!entityOwnedModels.has(modelName) && coverage.entityOwned) {
                 problems.push(
-                    'declares entityOwned: true but is not in the entityOwned map — add it there deliberately or drop the flag'
+                    'declares entityOwned: true but is not in the entityOwned map; add it there deliberately or drop the flag'
                 );
             }
 

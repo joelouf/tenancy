@@ -1,5 +1,5 @@
 /**
- * Access-review policy math — TypeScript Declarations.
+ * Access-review policy math: TypeScript Declarations.
  *
  * @module core/access-review
  * @version 1.0.0

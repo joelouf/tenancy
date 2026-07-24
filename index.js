@@ -6,7 +6,7 @@
  * memberships through ports; the Mongoose enforcement adapter, the client-safe scope grammar,
  * and the lint-guard cores live behind their own subpath exports.
  *
- * The root export is the core ONLY — deliberately. Re-exporting the adapter here would make a
+ * The root export is deliberately the core ONLY. Re-exporting the adapter here would make a
  * bare `import '@joelouf/tenancy'` load mongoose, breaking the optional-peer confinement. Import
  * '@joelouf/tenancy/adapters/mongoose' for the plugins, '@joelouf/tenancy/grammar' for the
  * client-safe scope grammar, and '@joelouf/tenancy/guards' for the checker cores.

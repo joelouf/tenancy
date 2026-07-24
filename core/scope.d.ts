@@ -1,5 +1,5 @@
 /**
- * The scope-filter algebra — TypeScript Declarations.
+ * The scope-filter algebra: TypeScript Declarations.
  *
  * @module core/scope
  * @version 1.0.0

@@ -57,7 +57,7 @@ test('canonicalScopeSelection lowercases ids and leaves "all" untouched', () => 
 test('the grammar module graph is builtin-free and core-free (client-bundle safety)', async () => {
     // Mechanism: a static walk of import/export specifiers from grammar/index.js. The grammar
     // subpath must never pull node: builtins (a "use client" bundle cannot carry
-    // node:async_hooks) nor any core module — this scan pins the whole transitive graph, not
+    // node:async_hooks) nor any core module; this scan pins the whole transitive graph, not
     // just the entry file.
     const importRe =
         /(?:^|\n)\s*(?:import|export)\s[^'"]*?from\s*['"]([^'"]+)['"]|(?:^|\n)\s*import\s*['"]([^'"]+)['"]/g;

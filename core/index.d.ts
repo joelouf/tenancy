@@ -1,5 +1,5 @@
 /**
- * The core barrel — TypeScript Declarations.
+ * The core barrel: TypeScript Declarations.
  *
  * @module core
  * @version 1.0.0

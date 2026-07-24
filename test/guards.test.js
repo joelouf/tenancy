@@ -259,7 +259,7 @@ const modelSource = (name, shape = {}) => {
     return lines.join('\n');
 };
 
-test('scanPluginCoverage matches by import source, not identifier text — a local imposter does not count', () => {
+test('scanPluginCoverage matches by import source, not identifier text; a local imposter does not count', () => {
     const covered = ts.createSourceFile(
         'lib/models/Contact.ts',
         modelSource('Contact'),

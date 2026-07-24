@@ -1,7 +1,7 @@
 /**
  * The workspace-deletion obligations registry.
  *
- * A provider names something a workspace still owes before it may be erased — the registry is
+ * A provider names something a workspace still owes before it may be erased; the registry is
  * consulted twice on the host's deletion path: once pre-flight for the UI, and once more INSIDE
  * the deletion transaction on its session, so an obligation that lands between the two aborts the
  * erasure rather than dying with it. The session is an opaque type parameter here: the package

@@ -1,8 +1,8 @@
 /**
- * The scope-selection grammar — parsing and printing the `all` / `kind:id` scope parameter.
+ * The scope-selection grammar: parsing and printing the `all` / `kind:id` scope parameter.
  *
  * This subpath is deliberately dependency-free AND context-free: it imports nothing (no core
- * modules, no node: builtins), so it is safe to bundle into client components — a client bundle
+ * modules, no node: builtins), so it is safe to bundle into client components; a client bundle
  * must never transitively pull node:async_hooks. A package test asserts this module graph stays
  * builtin-free; do not add imports here.
  *
@@ -20,8 +20,8 @@ function isScopeSelectionKind(value) {
 }
 
 /**
- * Parse a raw scope parameter. Returns null for anything malformed — an unknown kind, a
- * missing separator, or an id that is not 24 hex characters — so a caller can fall back to its
+ * Parse a raw scope parameter. Returns null for anything malformed (an unknown kind, a
+ * missing separator, or an id that is not 24 hex characters), so a caller can fall back to its
  * default scope rather than propagate garbage.
  *
  * @param {string | null | undefined} raw
@@ -40,7 +40,7 @@ export function parseScopeSelection(raw) {
 }
 
 /**
- * Print a selection back to its parameter form — the inverse of `parseScopeSelection`.
+ * Print a selection back to its parameter form, the inverse of `parseScopeSelection`.
  *
  * @param {import('./index.js').ScopeSelection} selection
  * @returns {string}

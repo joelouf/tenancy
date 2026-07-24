@@ -1,8 +1,8 @@
 /**
- * Access-review policy math — when a membership is due for an access attestation.
+ * Access-review policy math: when a membership is due for an access attestation.
  *
  * Pure date arithmetic: a member is due when they have been idle past the idle window AND their
- * last attestation (if any) has gone stale. Non-active memberships are never due — they are
+ * last attestation (if any) has gone stale. Non-active memberships are never due; they are
  * already out of the tenant.
  *
  * @module core/access-review

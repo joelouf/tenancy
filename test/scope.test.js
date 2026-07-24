@@ -41,7 +41,7 @@ test('prependScopeMatch prepends a workspace $match', () => {
     assert.equal(pipeline.length, 2);
 });
 
-test('prependScopeMatch is idempotent — does not stack a second identical guard', () => {
+test('prependScopeMatch is idempotent: does not stack a second identical guard', () => {
     /** @type {object[]} */
     const pipeline = [{ $match: { workspaceId: wsA } }];
     prependScopeMatch(pipeline, { workspaceId: wsA });
@@ -70,7 +70,7 @@ test('alwaysPrepend forces the guard in even over an identical leading $match (t
     );
 });
 
-test('scopeMatchStage copies the filter — mutating the stage never mutates the input', () => {
+test('scopeMatchStage copies the filter: mutating the stage never mutates the input', () => {
     const filter = { workspaceId: wsA };
     const stage = scopeMatchStage(filter);
     stage.$match.extra = true;

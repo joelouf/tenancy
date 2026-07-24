@@ -1,5 +1,5 @@
 // The fail-closed test-DB posture itself, pinned: the harness must REFUSE a non-local URI, not
-// merely skip it — a suite that can be pointed at a shared database by inherited environment is
+// merely skip it; a suite that can be pointed at a shared database by inherited environment is
 // an incident waiting to happen.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';

@@ -1,5 +1,5 @@
 /**
- * @joelouf/tenancy — TypeScript Declarations.
+ * @joelouf/tenancy: TypeScript Declarations.
  *
  * @module @joelouf/tenancy
  * @version 1.0.0

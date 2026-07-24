@@ -1,5 +1,5 @@
 /**
- * The workspace resolver — TypeScript Declarations.
+ * The workspace resolver: TypeScript Declarations.
  *
  * @module core/resolver
  * @version 1.0.0
@@ -7,7 +7,7 @@
 import type { LoggerPort, ObjectIdLike } from './types.js';
 import type { WorkspaceContext } from './context.js';
 
-/** The active workspace row the directory returns — id only; the slug is what was asked. */
+/** The active workspace row the directory returns: id only; the slug is what was asked. */
 export interface DirectoryWorkspace {
     readonly _id: ObjectIdLike;
 }
@@ -21,14 +21,14 @@ export interface DirectoryMembership {
 }
 
 /**
- * The directory port — the four reads/writes the resolver needs, implemented by the host over
+ * The directory port: the four reads/writes the resolver needs, implemented by the host over
  * its own models.
  *
  * Contract clauses:
  * - `findActiveWorkspaceBySlug` and `findActiveMembership` return only ACTIVE rows; a suspended
  *   or revoked membership is a null, which is what makes revocation next-request-immediate.
  * - `findActiveMembership` receives `NULL_WORKSPACE_ID` when the workspace lookup missed, and
- *   must run its ordinary query against it (enumeration resistance — never special-case it).
+ *   must run its ordinary query against it (enumeration resistance; never special-case it).
  * - `listEntityGrants` must NOT run through workspace-scoped enforcement: it executes while the
  *   context is still being built, so an enforced read would fail closed on the very context it
  *   is constructing. Zero rows mean all-entities; rows narrow, never widen.

@@ -64,7 +64,7 @@ test('context does not leak across runs', async () => {
     assert.equal(getTenantContext(), undefined);
 });
 
-test('nested runs are independent — the inner context wins and the outer returns', async () => {
+test('nested runs are independent: the inner context wins and the outer returns', async () => {
     const outer = workspaceContext({ slug: 'w-outer' });
     const inner = workspaceContext({ slug: 'w-inner' });
     await runWithWorkspace(outer, async () => {

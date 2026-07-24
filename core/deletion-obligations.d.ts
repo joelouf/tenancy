@@ -1,5 +1,5 @@
 /**
- * The workspace-deletion obligations registry — TypeScript Declarations.
+ * The workspace-deletion obligations registry: TypeScript Declarations.
  *
  * @module core/deletion-obligations
  * @version 1.0.0

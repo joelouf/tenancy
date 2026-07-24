@@ -1,5 +1,5 @@
 /**
- * The one-time tenancy configuration — TypeScript Declarations.
+ * The one-time tenancy configuration: TypeScript Declarations.
  *
  * @module core/config
  * @version 1.0.0

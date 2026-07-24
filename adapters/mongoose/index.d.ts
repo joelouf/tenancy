@@ -1,5 +1,5 @@
 /**
- * The Mongoose enforcement adapter — TypeScript Declarations.
+ * The Mongoose enforcement adapter: TypeScript Declarations.
  *
  * @module adapters/mongoose
  * @version 1.0.0

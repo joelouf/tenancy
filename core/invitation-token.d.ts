@@ -1,5 +1,5 @@
 /**
- * Invitation token custody — TypeScript Declarations.
+ * Invitation token custody: TypeScript Declarations.
  *
  * @module core/invitation-token
  * @version 1.0.0

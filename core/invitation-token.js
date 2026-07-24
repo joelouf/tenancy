@@ -2,7 +2,7 @@
  * Invitation token custody.
  *
  * The raw token exists exactly once: in the delivered message body. The database stores only its
- * SHA-256 digest, so a database, backup, or log dump never yields a live credential — which is
+ * SHA-256 digest, so a database, backup, or log dump never yields a live credential, which is
  * what makes an email-verification bypass sound ("the token reached the mailbox, so the mailbox
  * is controlled"). Resending rotates the token rather than re-sending a stored one.
  *
@@ -27,7 +27,7 @@ export function generateInvitationToken() {
 }
 
 /**
- * The storable digest of a token — the only form that ever touches persistence.
+ * The storable digest of a token, the only form that ever touches persistence.
  *
  * @param {string} token
  * @returns {string}

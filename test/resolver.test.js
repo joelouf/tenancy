@@ -49,14 +49,14 @@ test('resolves a member to a context with the slug, workspace, verbatim accessRo
     assert.equal(result.context.invited, false);
 });
 
-test('zero grant rows resolve to "all" — the absence of narrowing', async () => {
+test('zero grant rows resolve to "all": the absence of narrowing', async () => {
     const resolve = createWorkspaceResolver({ directory: seededDirectory() });
     const result = await resolve({ userId, workspaceSlug: slug });
     assert.ok(result.ok);
     assert.equal(result.context.entityIds, 'all');
 });
 
-test('grant rows narrow the context to exactly those entities — never widen', async () => {
+test('grant rows narrow the context to exactly those entities, never widen', async () => {
     const entityA = oid();
     const entityB = oid();
     const directory = seededDirectory(
@@ -89,7 +89,7 @@ test('invited derives from the membership invitationId', async () => {
     assert.equal(invitedResult.context.invited, true);
 });
 
-test('a missing workspace still calls findActiveMembership — with the null sentinel (enumeration resistance)', async () => {
+test('a missing workspace still calls findActiveMembership, with the null sentinel (enumeration resistance)', async () => {
     const directory = seededDirectory();
     const resolve = createWorkspaceResolver({ directory });
     const result = await resolve({
@@ -247,7 +247,7 @@ test('a rejected lastSeen write is swallowed, logged through the logger port, an
     assert.equal(logger.entries[0].fields?.error, 'write concern lost');
 });
 
-test('a directory without recordLastSeen resolves fine — presence bookkeeping is optional', async () => {
+test('a directory without recordLastSeen resolves fine: presence bookkeeping is optional', async () => {
     const resolve = createWorkspaceResolver({ directory: seededDirectory() });
     const result = await resolve({ userId, workspaceSlug: slug });
     assert.ok(result.ok);

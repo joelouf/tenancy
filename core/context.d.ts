@@ -1,5 +1,5 @@
 /**
- * Request-scoped tenant context — TypeScript Declarations.
+ * Request-scoped tenant context: TypeScript Declarations.
  *
  * @module core/context
  * @version 1.0.0

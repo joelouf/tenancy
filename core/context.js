@@ -1,12 +1,12 @@
 /**
- * Request-scoped tenant context — the fail-closed gate every scoped operation reads.
+ * Request-scoped tenant context: the fail-closed gate every scoped operation reads.
  *
  * The enforcement adapter reads the *current* workspace from here, so a workspace-scoped query
  * can never run without an established context. The context is carried on Node's
  * AsyncLocalStorage, which propagates across `await` boundaries within a single async execution.
  *
  * IMPORTANT (Next.js and friends): context set in middleware does NOT propagate into route
- * handlers, server actions, or RSC render — they are separate executions. The context must be
+ * handlers, server actions, or RSC render; they are separate executions. The context must be
  * established at each server entry point, and queries must be *executed* inside
  * `runWithWorkspace(...)`, not merely built there. This module requires the Node.js runtime
  * (node:async_hooks), never edge.
@@ -14,7 +14,7 @@
  * The storage itself lives on `globalThis[Symbol.for('@joelouf/tenancy/context-storage')]`, not
  * in module scope: bundlers duplicate modules (per-route server bundles, symlinked installs), and
  * a per-copy AsyncLocalStorage would mean a context set through one copy is invisible to a query
- * hook captured from another — a total fail-closed outage. `Symbol.for` is process-wide within a
+ * hook captured from another: a total fail-closed outage. `Symbol.for` is process-wide within a
  * realm, so every same-realm copy shares the one store.
  *
  * @module core/context
@@ -69,7 +69,7 @@ export function getTenantContext() {
 }
 
 /**
- * The current context, or throw (fail-closed). The scope plugin calls this — a missing context
+ * The current context, or throw (fail-closed). The scope plugin calls this; a missing context
  * must stop the query, never silently widen it.
  *
  * @returns {import('./context.js').TenantContext}
@@ -103,7 +103,7 @@ export function requireWorkspaceContext() {
 /**
  * The workspace a loaded row belongs to, for use as an explicit filter scope.
  *
- * Tenant schemas declare `workspaceId` required, so every domain row has one — but host
+ * Tenant schemas declare `workspaceId` required, so every domain row has one, but host
  * interfaces often type it optional. That gap is dangerous precisely where it looks harmless:
  * threading `row.workspaceId` straight into a filter can hand the driver `undefined`, which it
  * strips, leaving a query with no workspace scope at all. On a path reached under a system

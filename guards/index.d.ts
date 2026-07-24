@@ -1,7 +1,7 @@
 /**
- * The guard cores — TypeScript Declarations.
+ * The guard cores: TypeScript Declarations.
  *
- * The `ts` option is typed `typeof import('typescript')` — a TYPE-LEVEL dependency only. The
+ * The `ts` option is typed `typeof import('typescript')`: a TYPE-LEVEL dependency only. The
  * package never imports typescript at runtime and never installs it for consumers; the config
  * script that wires this check supplies its own compiler module.
  *

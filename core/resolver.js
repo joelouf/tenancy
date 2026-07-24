@@ -1,11 +1,11 @@
 /**
- * The workspace resolver — membership resolution behind a directory port.
+ * The workspace resolver: membership resolution behind a directory port.
  *
  * `createWorkspaceResolver` orchestrates the (user, workspace-slug) resolution: an active
  * workspace lookup, an UNCONDITIONAL active-membership lookup, a throttled fire-and-forget
  * lastSeen touch, and the entity-grant read that produces the context's entity dimension. All
  * I/O goes through the `TenancyDirectory` port; the package never opens a connection, never sees
- * a model, and never maps refusals to a transport error — that is the composition layer's job.
+ * a model, and never maps refusals to a transport error; that is the composition layer's job.
  *
  * Two contract clauses are load-bearing and pinned by tests:
  *
@@ -14,7 +14,7 @@
  *    stay indistinguishable in query count and timing. The discriminated refusal reason exists
  *    for the composition layer only; the composition MUST map both reasons to one identical
  *    not-found response (same message, same code). The directory must treat the sentinel as an
- *    ordinary query value — special-casing it to skip the read would reopen the timing oracle.
+ *    ordinary query value; special-casing it to skip the read would reopen the timing oracle.
  *
  * 2. GRANTS NARROW, NEVER WIDEN. Zero grant rows resolve to "all" (the absence of narrowing);
  *    one or more rows narrow the context to exactly those entities. The port contract requires
@@ -41,8 +41,8 @@ const NULL_WORKSPACE_HEX = '000000000000000000000000';
 
 /**
  * The null-sentinel workspace id passed to `findActiveMembership` when the workspace lookup
- * misses (the enumeration-resistance device). It is a real, well-formed 24-hex id value — the
- * all-zero ObjectId — so a directory can feed it into an ordinary indexed equality that matches
+ * misses (the enumeration-resistance device). It is a real, well-formed 24-hex id value (the
+ * all-zero ObjectId), so a directory can feed it into an ordinary indexed equality that matches
  * nothing.
  *
  * @type {import('./types.js').ObjectIdLike}
@@ -67,7 +67,7 @@ export function createWorkspaceResolver(deps) {
     /**
      * The throttled, fire-and-forget lastSeen touch. Suppressed entirely under an ambient system
      * context (system flows must leave no presence trace); throttled by the write window;
-     * failures are logged through the logger port and never surface to the caller — presence
+     * failures are logged through the logger port and never surface to the caller; presence
      * bookkeeping must never block or fail a resolution.
      *
      * @param {import('./resolver.js').DirectoryMembership} membership

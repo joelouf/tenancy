@@ -6,7 +6,7 @@ import {
 } from '../index.js';
 import { oid } from './_harness.js';
 
-test('the registry ships empty — a collect with no providers reports no obligations', async () => {
+test('the registry ships empty: a collect with no providers reports no obligations', async () => {
     assert.deepEqual(await collectDeletionObligations(oid(), null), []);
 });
 

@@ -1,5 +1,5 @@
 /**
- * The one-time tenancy configuration — the single entry point where the host application tells
+ * The one-time tenancy configuration: the single entry point where the host application tells
  * the engine what it cannot know on its own: which collections are entity-owned, and where to
  * log.
  *
@@ -7,7 +7,7 @@
  * in module scope. Bundlers and linkers can duplicate this module (per-route server bundles,
  * symlink realpath splits); a module-scoped record would let one copy be configured while another
  * silently reports "unconfigured", and the consumers of the entity-owned list fail CLOSED on
- * unconfigured — so a split would turn into an outage or, worse, tempt a fail-open fallback.
+ * unconfigured, so a split would turn into an outage or, worse, tempt a fail-open fallback.
  * `Symbol.for` is process-wide within a realm, so every same-realm copy reads one record. A vm or
  * edge-realm split would not share it; that is a recorded limit, not a covered case.
  *

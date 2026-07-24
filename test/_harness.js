@@ -1,9 +1,9 @@
 /**
- * Shared test harness — id stubs, context builders, a recording logger, an in-memory directory,
+ * Shared test harness: id stubs, context builders, a recording logger, an in-memory directory,
  * and the fail-closed test-DB gate.
  *
  * DB posture: DB-backed cases read TENANCY_TEST_DB_URI. When it is unset they skip cleanly; when
- * it is set to anything non-local the harness THROWS at load (fail closed) — the suite must
+ * it is set to anything non-local the harness THROWS at load (fail closed); the suite must
  * never be able to point at a shared database, even by inherited environment.
  */
 
@@ -183,7 +183,7 @@ export const isLocalMongoUri = (uri) => {
 
 /**
  * The test database URI, or null when DB-backed cases should skip. REFUSES (throws) any
- * non-local URI — fail closed, never "gate on one".
+ * non-local URI: fail closed, never "gate on one".
  *
  * @returns {string | null}
  */
@@ -206,7 +206,7 @@ export const DB_SKIP_REASON =
 
 /**
  * Import the module at `relativePath` (relative to the package root) as a FRESH instance by
- * appending a unique query string — Node keys ESM module instances by resolved URL, so distinct
+ * appending a unique query string; Node keys ESM module instances by resolved URL, so distinct
  * queries execute the module body again and yield genuinely separate copies in one realm. The
  * split-copy suite uses this to simulate bundler/symlink duplication.
  *

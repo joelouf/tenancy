@@ -5,7 +5,7 @@
 // MECHANISM: Node's ESM loader keys module instances by resolved URL, so importing the same
 // file with distinct query strings ('...?copy=a' vs '...?copy=b', via the harness's
 // importFreshCopy) executes the module body twice and yields two genuinely separate module
-// instances in one realm — the same shape a bundler's per-route duplicate or a symlink realpath
+// instances in one realm, the same shape a bundler's per-route duplicate or a symlink realpath
 // split produces. Anything module-scoped diverges between the copies; anything keyed on
 // Symbol.for (or attached to a shared schema object) must not. For the ownership pin the copies
 // are two instances of the whole adapter module: copy A's tenantFieldsPlugin writes the
@@ -129,7 +129,7 @@ test('ownership written by one adapter copy is honored by the other (schema-atta
                     err instanceof Error &&
                     err.name === 'WorkspaceScopeError' &&
                     /entity grants/.test(err.message),
-                'copy B enforces the narrowing copy A declared — the split-registry fail-open is dead'
+                'copy B enforces the narrowing copy A declared; the split-registry fail-open is dead'
             );
 
             const inside = new Probe({

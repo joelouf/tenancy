@@ -1,5 +1,5 @@
 /**
- * Shared structural types for the tenancy engine — the id shape, the logger port, and the
+ * Shared structural types for the tenancy engine: the id shape, the logger port, and the
  * configuration record. JSDoc type definitions only, no runtime code; the core never depends on a
  * concrete driver id class, so any object with the ObjectId surface (Mongoose/BSON ObjectIds
  * included) satisfies these shapes structurally.
