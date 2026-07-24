@@ -37,4 +37,4 @@ jobs:
       - run: pnpm run typecheck
       - name: Upgrade npm for trusted publishing (requires 11.5.1+)
         run: npm install -g npm@latest
-      - run: npm publish
+      - run: npm stage publish
