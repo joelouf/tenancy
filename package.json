@@ -1,0 +1,87 @@
+{
+    "name": "@joelouf/tenancy",
+    "version": "1.0.0",
+    "description": "A zero-runtime-dependency, fail-closed workspace-tenancy enforcement engine — AsyncLocalStorage tenant context, entity-narrowed Mongoose scope plugins, an enumeration-resistant membership resolver, and lint-guard cores, all behind ports.",
+    "type": "module",
+    "main": "index.js",
+    "module": "index.js",
+    "types": "index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./index.js",
+            "types": "./index.d.ts"
+        },
+        "./core": {
+            "import": "./core/index.js",
+            "types": "./core/index.d.ts"
+        },
+        "./grammar": {
+            "import": "./grammar/index.js",
+            "types": "./grammar/index.d.ts"
+        },
+        "./adapters/mongoose": {
+            "import": "./adapters/mongoose/index.js",
+            "types": "./adapters/mongoose/index.d.ts"
+        },
+        "./guards": {
+            "import": "./guards/index.js",
+            "types": "./guards/index.d.ts"
+        }
+    },
+    "files": [
+        "index.js",
+        "index.d.ts",
+        "core/",
+        "grammar/",
+        "adapters/",
+        "guards/",
+        "SECURITY.md"
+    ],
+    "keywords": [
+        "multi-tenancy",
+        "tenant-isolation",
+        "workspace",
+        "fail-closed",
+        "mongoose",
+        "asynclocalstorage",
+        "row-level-security",
+        "scope",
+        "zero-dependencies",
+        "data-governance"
+    ],
+    "author": "joelouf",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/joelouf/tenancy.git"
+    },
+    "homepage": "https://github.com/joelouf/tenancy#readme",
+    "bugs": {
+        "url": "https://github.com/joelouf/tenancy/issues"
+    },
+    "engines": {
+        "node": ">=20.19"
+    },
+    "sideEffects": false,
+    "packageManager": "pnpm@10.32.1",
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "test": "node --test test/*.test.js",
+        "typecheck": "tsc"
+    },
+    "peerDependencies": {
+        "mongoose": "^9.3.3"
+    },
+    "peerDependenciesMeta": {
+        "mongoose": {
+            "optional": true
+        }
+    },
+    "devDependencies": {
+        "@types/node": "^22.9.0",
+        "mongoose": "^9.3.3",
+        "typescript": "^5.9.0"
+    }
+}
